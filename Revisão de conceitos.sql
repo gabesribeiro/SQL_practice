@@ -94,11 +94,18 @@ Inserção dos dados de nacionalidade e origem.
 Adicionado em 05 de Março de 2023
 */
 
-INSERT INTO
+UPDATE
 	comissao_tec
-	(
-		
-	)
+SET
+	nacionalidade='Brasileiro',
+	UF_origem= 'SP'
+WHERE
+	id_tec=1
+
+SELECT
+	*
+FROM
+	comissao_tec
 
 --Guilherme Ribeiro, Auxiliar do técnico
 INSERT INTO
@@ -119,6 +126,20 @@ VALUES
 	'Auxiliar Técnico'
 );
 
+/*
+Inserção dos dados de nacionalidade e origem.
+
+Adicionado em 06 de Março de 2023
+*/
+
+UPDATE
+	comissao_tec
+SET
+	nacionalidade= 'Brasileiro',
+	UF_origem= 'SP'
+WHERE
+	id_tec= 2
+
 --Paulo Lopes, Segundo Auxiliar do Técnico
 INSERT INTO
 	comissao_tec
@@ -137,6 +158,20 @@ VALUES
 	'1997-09-14',
 	'Seg. Auxiliar Técnico'
 );
+
+/*
+Inserção dos dados de nacionalidade e origem.
+
+Adicionado em 06 de Março de 2023
+*/
+
+UPDATE
+	comissao_tec
+SET
+	nacionalidade= 'Brasileiro',
+	UF_origem= 'PR'
+WHERE
+	id_tec= 3
 
 --Nayara Lourenço, Preparadora Física
 INSERT INTO
@@ -157,6 +192,20 @@ VALUES
 	'Preparadora Física'
 );
 
+/*
+Inserção dos dados de nacionalidade e origem.
+
+Adicionado em 05 de Março de 2023
+*/
+
+UPDATE
+	comissao_tec
+SET
+	nacionalidade= 'Brasileira',
+	UF_origem= 'SP'
+WHERE
+	id_tec= 4
+
 --João Igor, Treinador de Goleiro
 INSERT INTO
 	comissao_tec
@@ -175,6 +224,21 @@ VALUES
 	'1998-07-26',
 	'Treinador de Goleiro'
 );
+
+/*
+Inserção dos dados de nacionalidade e origem.
+
+Adicionado em 05 de Março de 2023
+*/
+
+UPDATE
+	comissao_tec
+SET
+	nacionalidade= 'Português',
+	UF_origem= 'XX'
+WHERE
+	id_tec= 5
+
 
 /*Inserção de dados na tabela:
 TÉCNICOS CONTRATADOS.*/
@@ -249,6 +313,7 @@ VALUES
 	'2025-04-14'
 );
 
+
 --João Igor, Treinador de Goleiro
 INSERT INTO
 	contratados_tec
@@ -281,3 +346,20 @@ SELECT
 	*
 FROM
 	contratados_tec
+
+--Consulta de técnicos estrangeiros
+
+SELECT
+	id_tec,
+	prim_nome,
+	cargo,
+	nacionalidade
+FROM
+	comissao_tec
+WHERE
+	nacionalidade
+	NOT IN
+	(
+		'Brasileiro',
+		'Brasileira'
+	)
